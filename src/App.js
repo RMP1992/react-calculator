@@ -35,49 +35,48 @@ addZeroToInput = (val) =>{
   }
   
 };
+//this function assigns values to the states
 add = () =>{
-  this.setState({previousNumber: this.state.input})
-  // this.state.previousNumber = this.state.input;
-  this.setState({input: ""});
-  this.setState({operator: "plus"});
-  this.setState({currentNumber: parseInt(this.state.input)})
+  this.setState({previousNumber: this.state.input})//the first number that you have pressed is assigned to the state previousNumber
+  this.setState({input: ""});//after you press the math sign it clears the input
+  this.setState({operator: "plus"});// assigns "plus" operator state, to be used in the evaluate function
+  this.setState({currentNumber: parseInt(this.state.input)})// assigns the second number to the state currentNumber
   console.log(typeof(this.state.input)) 
   console.log(typeof(this.state.previousNumber))
   
 };
-
+//this function assigns values to the states
 subtract =() =>{
-  this.setState({previousNumber: this.state.input})
-  this.setState({input: ""});
-  this.setState({operator: "subtract"});
-  this.setState({currentNumber: parseInt(this.state.input)})
-  console.log(typeof(this.state.input)) 
-  console.log(typeof(this.state.previousNumber))
-};
-multiply = () =>{
-  this.setState({previousNumber: this.state.input})
-  this.setState({input: ""});
-  this.setState({operator: "multiply"});
-  this.setState({currentNumber: parseInt(this.state.input)})
-  console.log(typeof(this.state.input)) 
-  console.log(typeof(this.state.previousNumber))
-};
-divide = () =>{
-  this.setState({previousNumber: this.state.input})//the first number that you have pressed is assigned to the state previousNumber
+  this.setState({previousNumber: this.state.input});//the first number that you have pressed is assigned to the state previousNumber
   this.setState({input: ""});//after you press the math sign it clears the input
-  this.setState({operator: "divide"});// assigns "divide" operator state
+  this.setState({operator: "subtract"});// assigns "subtract" operator state, to be used in the evaluate function
   this.setState({currentNumber: parseInt(this.state.input)})// assigns the second number to the state currentNumber
   console.log(typeof(this.state.input)) 
   console.log(typeof(this.state.previousNumber))
 };
+//this function assigns values to the states
+multiply = () =>{
+  this.setState({previousNumber: this.state.input});//the first number that you have pressed is assigned to the state previousNumber
+  this.setState({input: ""});//after you press the math sign it clears the input
+  this.setState({operator: "multiply"});// assigns "multiply" operator state, to be used in the evaluate function
+  this.setState({currentNumber: parseInt(this.state.input)})// assigns the second number to the state currentNumber
+  console.log(typeof(this.state.input)) 
+  console.log(typeof(this.state.previousNumber))
+};
+//this function assigns values to the states
+divide = () =>{
+  this.setState({previousNumber: this.state.input});//the first number that you have pressed is assigned to the state previousNumber
+  this.setState({input: ""});//after you press the math sign it clears the input
+  this.setState({operator: "divide"});// assigns "divide" operator state, to be used in the evaluate function
+  this.setState({currentNumber: parseInt(this.state.input)})// assigns the second number to the state currentNumber
+  console.log(typeof(this.state.input)) 
+  console.log(typeof(this.state.previousNumber))
+};
+//this functions turns the value to strings, does the math and assigns the result to the input state.
 evaluate = () =>{
- 
-  
-console.log(typeof(this.state.currentNumber))
+ console.log(typeof(this.state.currentNumber))
  if(this.state.operator === "plus"){
    this.setState({input: parseInt(this.state.previousNumber) + parseInt(this.state.currentNumber)});
-  
-   // the previous number stored in the input to be use later
  }else if (this.state.operator === "subtract"){
    this.setState({input: parseInt(this.state.previousNumber) - parseInt(this.state.currentNumber)});
  }else if (this.state.operator === "multiply"){
@@ -120,7 +119,7 @@ render() {
         </div>
         <div className="row">
           <Clearbtn clear="Clear" handleClear={() => this.setState({input: ""})}/>
-          
+          {/* Clearbtn has an annonimous function which simply sets the value of input to be nothing  */}
         </div>
         
       </div>
@@ -131,4 +130,3 @@ render() {
   
 }
 export default App
- //line Clearbtn has an annonimous function which simply sets the value of input to be nothing
